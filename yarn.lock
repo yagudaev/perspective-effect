@@ -65,10 +65,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.10.tgz#78a42897c2cf8db9fd5f1811f7590393b77774c7"
   integrity sha512-w0Ou3Z83LOYEkwaui2M8VwIp+nLi/NA60lBLMvaJ+vXVMcsARYdEzLNE7RSm4+lSg4zq4d7fAVuzk7PNQ5JFgg==
 
-"@figma/plugin-typings@1.50.0":
-  version "1.50.0"
-  resolved "https://registry.yarnpkg.com/@figma/plugin-typings/-/plugin-typings-1.50.0.tgz#1bc7de6639ff8a5525ac937c19241e2e4e925e96"
-  integrity sha512-ue1He4XimFEjY7eS7x6tBY6pyMp7zfVOjgStFioqKUxPPIz0gCFLmFUjR5g6fMrYJCqAMP5/Mjwq4Ks0vpe2sA==
+"@figma/plugin-typings@1.53.0":
+  version "1.53.0"
+  resolved "https://registry.yarnpkg.com/@figma/plugin-typings/-/plugin-typings-1.53.0.tgz#beab286c319947da736917096b9a1220d820252e"
+  integrity sha512-8XiX9iaguKE0YvcAon3hWv28rzJXe12OvKi6+ohPyLnF28f6msmyn/xVcoUuBCPAiMIDwOjlJHS+vwyzCiF9eA==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1439,10 +1439,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-simple-code-editor@^0.11.2:
-  version "0.11.3"
-  resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.11.3.tgz#6e5af1c2e51588aded2c89b86e98fac144212f61"
-  integrity sha512-7bVI4Yd1aNCeuldErXUt8ksaAG5Fi+GZ6vp3mtFBnckKdzsQtrgkDvdwMFXIhwTGG+mUYmk5ZpMo0axSW9JBzA==
+react-simple-code-editor@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.13.1.tgz#4514553fa132dcaffec33a6612c58f1613c52416"
+  integrity sha512-XYeVwRZwgyKtjNIYcAEgg2FaQcCZwhbarnkJIV20U2wkCU9q/CPFBo8nRXrK4GXUz3AvbqZFsZRrpUTkqqEYyQ==
 
 react@^18:
   version "18.2.0"
