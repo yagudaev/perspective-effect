@@ -14,13 +14,22 @@ function Plugin() {
     [code]
   )
   return (
-    <Container space='medium'>
-      <VerticalSpace space='small' />
-      <VerticalSpace space='large' />
-      <Button fullWidth onClick={handleInsertCodeButtonClick}>
-        Apply Perspective Effect
-      </Button>
-      <VerticalSpace space='small' />
+    <Container
+      space='medium'
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        flexGrow: 1
+      }}
+    >
+      <div style={{ width: "100%" }}>
+        <Button fullWidth style={{ width: "100%" }} onClick={handleInsertCodeButtonClick}>
+          Apply Perspective Effect
+        </Button>
+      </div>
     </Container>
   )
 }
