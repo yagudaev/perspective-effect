@@ -12,8 +12,13 @@ export default function () {
     const target = figma.currentPage.selection[0] as VectorNode
 
     const fill = (target.fills as [ImagePaint])[0]
-    const image = fill.imageHash
-    fill.imageTransform
+    try {
+      const bytes = await loadImage(fill.imageHash!)
+      // bytes are raw image data in PNG/JPEG and need to be decoded
+      console.log("bytes length", bytes.length)
+    } catch (error) {
+      figma.notify("Error: Could not load image")
+    }
 
     figma.currentPage.selection = [target]
     figma.viewport.scrollAndZoomIntoView([target])
@@ -57,5 +62,19 @@ function checkValidSelection() {
     return false
   }
 
+  if (fill.imageHash === null) {
+    figma.notify("Please use a shape with an image fill")
+    return false
+  }
+
   return true
+}
+
+async function loadImage(imageHash: string) {
+  const image = figma.getImageByHash(imageHash)
+  if (!image) {
+    throw new Error("Image not found")
+  }
+  const bytes = await image.getBytesAsync()
+  return bytes
 }
