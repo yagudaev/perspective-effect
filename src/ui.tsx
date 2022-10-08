@@ -3,13 +3,13 @@ import { emit } from "@create-figma-plugin/utilities"
 import { h } from "preact"
 import { useCallback, useState } from "preact/hooks"
 
-import { InsertCodeHandler } from "./types"
+import { ApplyPerspectiveEffectHandler } from "./types"
 
 function Plugin() {
   const [code, setCode] = useState(`function add(a, b) {\n  return a + b;\n}`)
   const handleInsertCodeButtonClick = useCallback(
     function () {
-      emit<InsertCodeHandler>("INSERT_CODE", code)
+      emit<ApplyPerspectiveEffectHandler>("APPLY_PERSPECTIVE_EFFECT", code)
     },
     [code]
   )
@@ -18,7 +18,7 @@ function Plugin() {
       <VerticalSpace space='small' />
       <VerticalSpace space='large' />
       <Button fullWidth onClick={handleInsertCodeButtonClick}>
-        Insert Code
+        Apply Perspective Effect
       </Button>
       <VerticalSpace space='small' />
     </Container>

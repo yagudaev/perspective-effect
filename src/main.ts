@@ -1,9 +1,9 @@
-import { loadFontsAsync, once, showUI } from '@create-figma-plugin/utilities'
+import { loadFontsAsync, once, showUI } from "@create-figma-plugin/utilities"
 
-import { InsertCodeHandler } from './types'
+import { ApplyPerspectiveEffectHandler } from "./types"
 
 export default function () {
-  once<InsertCodeHandler>('INSERT_CODE', async function (code: string) {
+  once<ApplyPerspectiveEffectHandler>("APPLY_PERSPECTIVE_EFFECT", async function (code: string) {
     const text = figma.createText()
     await loadFontsAsync([text])
     text.characters = code
