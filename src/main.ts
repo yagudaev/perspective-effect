@@ -1,7 +1,7 @@
-import { loadFontsAsync, once, showUI } from "@create-figma-plugin/utilities"
+import { emit, loadFontsAsync, once, showUI } from "@create-figma-plugin/utilities"
 import isArray from "lodash/isArray"
 
-import { ApplyPerspectiveEffectHandler } from "./types"
+import { ApplyPerspectiveEffectHandler, ResImageDataHandler } from "./types"
 
 export default function () {
   once<ApplyPerspectiveEffectHandler>("APPLY_PERSPECTIVE_EFFECT", async function (code: string) {
@@ -10,15 +10,6 @@ export default function () {
     }
 
     const target = figma.currentPage.selection[0] as VectorNode
-
-    const fill = (target.fills as [ImagePaint])[0]
-    try {
-      const bytes = await loadImage(fill.imageHash!)
-      // bytes are raw image data in PNG/JPEG and need to be decoded
-      console.log("bytes length", bytes.length)
-    } catch (error) {
-      figma.notify("Error: Could not load image")
-    }
 
     figma.currentPage.selection = [target]
     figma.viewport.scrollAndZoomIntoView([target])
@@ -31,6 +22,21 @@ export default function () {
   }
 
   showUI({ height: 240, width: 320 })
+  sendImageDataToUI()
+}
+
+async function sendImageDataToUI() {
+  const target = figma.currentPage.selection[0] as VectorNode
+
+  const fill = (target.fills as [ImagePaint])[0]
+  try {
+    const bytes = await loadImage(fill.imageHash!)
+    // bytes are raw image data in PNG/JPEG and need to be decoded
+    console.log("bytes length", bytes.length)
+    emit<ResImageDataHandler>("RES_IMAGE_DATA", bytes)
+  } catch (error) {
+    figma.notify("Error: Could not load image")
+  }
 }
 
 function checkValidSelection() {
